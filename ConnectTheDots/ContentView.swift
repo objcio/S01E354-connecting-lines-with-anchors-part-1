@@ -64,7 +64,7 @@ struct DirectionList: View {
         .listStyle(.inset(alternatesRowBackgrounds: true))
         .overlayPreferenceValue(ItemBoundsKey.self) { bounds in
             GeometryReader { proxy in
-                let pairs = Array(zip(sample, sample.dropFirst()))
+                let pairs = Array(zip(items, items.dropFirst()))
                 ForEach(pairs, id: \.0.id) { (item, next) in
                     if let from = bounds[item.id], let to = bounds[next.id] {
                         Line(from: proxy[from][.bottom], to: proxy[to][.top])
